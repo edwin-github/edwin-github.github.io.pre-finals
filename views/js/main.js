@@ -458,8 +458,6 @@ for (var i = 0; i < items.length; i++) {
 //var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
 phase = Math.sin((docscrollTop / 1250) + (i % 5));
 items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
-console.log("docscrollTop: " +docscrollTop);
-
 }
 // User Timing API to the rescue again. Seriously, it's worth learning.
 // Super easy to create custom metrics.
@@ -483,8 +481,6 @@ elem.className = 'mover';
 elem.src = "images/pizza.png";
 elem.basicLeft = (i % cols) * s;
 elem.style.top = (Math.floor(i / cols) * s) + 'px';
-console.log("elem.basicLeft: " +elem.basicLeft);
-console.log("elem.style.top: " +elem.style.top);
 document.querySelector("#movingPizzas1").appendChild(elem);
 }
 updatePositions();

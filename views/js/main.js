@@ -453,11 +453,13 @@ frame++;
 window.performance.mark("mark_start_frame");
 var items = document.querySelectorAll('.mover');
 //for efficienct and since the scrollTop is constant, it was moved out of the for loop and defined here
-var scrollTop = document.body.scrollTop;
+var docscrollTop = document.body.scrollTop;
 for (var i = 0; i < items.length; i++) {
 //var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
-phase = Math.sin((scrollTop / 1250) + (i % 5));
+phase = Math.sin((docscrollTop / 1250) + (i % 5));
 items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+console.log("docscrollTop: " +docscrollTop);
+
 }
 // User Timing API to the rescue again. Seriously, it's worth learning.
 // Super easy to create custom metrics.

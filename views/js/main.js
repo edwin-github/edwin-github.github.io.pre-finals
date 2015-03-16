@@ -537,6 +537,8 @@ document.addEventListener('DOMContentLoaded', function() {
     elem.src = "images/pizza.png";
     elem.basicLeft = (i % cols) * s;
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
+    console.log("elem.basicLeft: " +elem.basicLeft);
+    console.log("elem.style.top: " +elem.style.top);
     document.querySelector("#movingPizzas1").appendChild(elem);
   }
   updatePositions();

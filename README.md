@@ -31,17 +31,19 @@ Some useful tips to help you get started:
 Profile, optimize, measure... and then lather, rinse, and repeat. Good luck!
 
 #############################################################################################################
-#Changes made to index.html to achieve a 90 or above score in PageSpeed Insights:							#
-#1) Optimize the JS script																					#
-#		-  since the scripts were small enough the scripts were included in the index.html file to			#
-#  		   reduce the eliminate the render-blocking javascripts.											#
-#  		-  minify the javascript to reduce the size.														#
-#  																											#
-#2) Optimize the CSS script 																				#
-#		- similar to the Javascript the CSS files was small enough and was "inlined" in the index.html.		#
-#		- minify the CSS.																					#
-#																											#
-#3) Optimize images - images where resized and compressed to reduce the size to optimize the loading.		#
+#Changes made to index.html to achieve a 90 or above score in PageSpeed Insights:
+#1) Optimize the JS script																				
+#		-  since the scripts were small enough the scripts were included in the index.html file to	
+#  		   reduce the eliminate the render-blocking javascripts.									
+#  		-  minify the javascript to reduce the size.	
+#     - loaded async
+#
+#  																										
+#2) Optimize the CSS script 																			
+#		- similar to the Javascript the CSS files was small enough and was "inlined" in the index.html.	
+#		- minify the CSS.																				
+#																										
+#3) Optimize images - images where resized and compressed to reduce the size to optimize the loading.	
 #############################################################################################################
 
 
@@ -65,21 +67,21 @@ You might find the FPS Counter/HUD Display useful in Chrome developer tools desc
 
 
 #############################################################################################################
-#Changes made to views/pizza.html and views/js/main.js:														#												#
-#1) Optimize the JS script																					#
-#  		-  minify the javascript to reduce the size.														#
-#  																											#
-#2) Optimize the CSS script 																				#
-#		- the CSS files was small enough and was "inlined" in the pizza.html.								#
-#		- minify the CSS.																					#
-#																											#
-#3) Optimize images - images where resized and compressed to reduce the size to optimize the loading.		#
-#																											#
-#4) The for loop in the code for sliding background pizzas was modified to minimize unnecessary steps to	#
-#   enhance the user experience when scrolling and achive a 60 FPS:											#
-#   The retrieving of the "document.body.scrollTop" doesn't have to be done in the for loop. It is contanct #
-#   and therefore was moved out of the for loop.                											#		 														#
-#   The width and height of the random pizza element was move out of the for loop and was integrated in     #
+#Changes made to views/pizza.html and views/js/main.js:																							
+#1) Optimize the JS script																					
+#  		-  loaded async.														
+#  																											
+#2) Optimize the CSS script 																				
+#		- the CSS files was small enough and was "inlined" in the pizza.html.								
+#		- minify the CSS.																					
+#																										
+#3) Optimize images - images where resized and compressed to reduce the size to optimize the loading.	
+#																											
+#4) The for loop in the code for sliding background pizzas was modified to minimize unnecessary steps to	
+#   enhance the user experience when scrolling and achive a 60 FPS:										
+#   The retrieving of the "document.body.scrollTop" doesn't have to be done in the for loop. It is contanct 
+#   and therefore was moved out of the for loop.                											 														
+#   The width and height of the random pizza element was move out of the for loop and was integrated in     
 #   the CSS.
 #############################################################################################################
 

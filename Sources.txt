@@ -1,4 +1,5 @@
 SOurces used for this Project
-1) forum
+1) Udacity forum/piazza
 2) Ilya's pages
 3) minify sites
+4) W3C

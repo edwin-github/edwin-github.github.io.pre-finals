@@ -415,7 +415,7 @@ var rpc = document.querySelector(".randomPizzaContainer")
 var dx = determineDx(rpc, size);
 var newwidth = (rpc.offsetWidth + dx) + 'px';
 for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
-document.getElementsByClassName("randomPizzaContainer")[i].style.width = newwidth;
+document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
 }
 }
 changePizzaSizes(size);

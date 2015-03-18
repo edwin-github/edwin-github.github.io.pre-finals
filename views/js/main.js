@@ -455,11 +455,10 @@ console.log("Average time to generate last 10 frames: " + sum / 10 + "ms");
 function updatePositions() {
 frame++;
 window.performance.mark("mark_start_frame");
-var items = document.querySelectorAll('.mover');
-//for efficienct and since the scrollTop is constant, it was moved out of the for loop and defined here
+var items = document.getElementsByClassName('mover');
+//No need to reiterate the retrieval of the document.body.scrollTop, move it out of the for loop
 var docscrollTop = document.body.scrollTop;
 for (var i = 0; i < items.length; i++) {
-//var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
 phase = Math.sin((docscrollTop / 1250) + (i % 5));
 items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
 }

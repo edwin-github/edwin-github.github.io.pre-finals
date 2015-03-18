@@ -415,7 +415,7 @@ var newwidth = (document.querySelector(".randomPizzaContainer").offsetWidth + dx
 for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
 //var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
 //var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
-console.log("newwidth: " + newwidth);
+//console.log("newwidth: " + newwidth);
 document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
 }
 }

@@ -5,9 +5,9 @@ Changes made to the index.html file to achieve a 90 or above score in PageSpeed 
 1) Optimize the JS script - external scripts were asynchronously ("async") executed to eliminate render-blocking
                           - inline script was repositioned after the external scripts to allow for parallel downloading
 2) Optimize the CSS script - inline the small CSS (style.css) file in the index.html.
-						   - inline the portion of the font CSS used by the HTML and remove the link to the CSS file
-						     "<link href="//fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">", 
-						     again to eliminate render-blocking.
+	- inline the portion of the font CSS used by the HTML and remove the link to the CSS file
+	  "<link href="//fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">", 
+	  again to eliminate render-blocking.
 						     
 To further optimize the web performance, the following can be done on the file with a reliable tool:
 3) Minify - to eliminate any unnecessary characters in the code (I don't have a reliable tool at this time).

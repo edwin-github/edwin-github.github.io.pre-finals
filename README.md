@@ -1,48 +1,49 @@
-## Website Performance Optimization portfolio project
-#############################################################################################################
-#Changes made to the index.html file to achieve a 90 or above score in PageSpeed Insights:
-#1) Optimize the JS script																				
-#		  - since the scripts were small enough the scripts were included in the index.html file to	
-#  		  eliminate the render-blocking javascript (can also be loaded async if file is too large).									
-#  		- minify the javascript to reduce the size.	
-#  																										
-#2) Optimize the CSS script 																			
-#		- similar to the Javascript the CSS files were small enough and were "inlined" in the index.html.	
-#		- minify the CSS.																				
-#																										
-#3) Optimize images - images where resized and compressed to reduce the size to optimize the loading.	
-#
-#4) Minify the index.html file - to eliminate any unnecessary characters in the code.
-#############################################################################################################
+***Website Performance Optimization portfolio project***
+
+A.	PageSpeed
+Changes made to the index.html file to achieve a 90 or above score in PageSpeed Insights:
+1) Optimize the JS script - external scripts were asynchronously ("async") executed to eliminate render-blocking
+                          - inline script was repositioned after the external scripts to allow for parallel downloading
+2) Optimize the CSS script - inline the small CSS (style.css) file in the index.html.
+						   - inline the portion of the font CSS used by the HTML and remove the link to the CSS file
+						     "<link href="//fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">", 
+						     again to eliminate render-blocking.
+						     
+To further optimize the web performance, the following can be done on the file with a reliable tool:
+3) Minify - to eliminate any unnecessary characters in the code (I don't have a reliable tool at this time).
+4) Optimize images - The images can also be compressed to further optimize the web performance (I don't have a reliable tool at this time).
 
 
-#### 2: Optimize Frames per Second and Time to resize pizzas in pizza.html/main.jas
-#############################################################################################################
-#Changes made to views/pizza.html and views/js/main.js:																							
-#1) Optimize the JS script																					
-#  		-  loaded files async when warranted.														
-#  																											
-#2) Optimize the CSS script 																				
-#		- the CSS file was small enough and was "inlined" in the pizza.html.								
-#		- minify the CSS.																					
-#																										
-#3) Optimize images - images where resized and compressed to reduce the size to optimize the loading.	
-#																											
-#4) DOM elements that were being retrieved insisde the loop were coded instead before the for loop line.
-#   var pizzasDiv = document.getElementById("randomPizzas");
-#   for (var i = 2; i < 100; i++) {
-#   //var pizzasDiv = document.getElementById("randomPizzas");
-#   pizzasDiv.appendChild(pizzaElementGenerator(i));
-#    
-#   //Minimize the retrieval of the pizza container element by just calling it once in this line of code
-#   //and assigning it to a variable instead of calling it multiple times inside the for loop
-#   var rpc = document.querySelector(".randomPizzaContainer")
-#   var dx = determineDx(rpc, size);
-#   var newwidth = (rpc.offsetWidth + dx) + 'px';
-#5) minify the pizza.html and main.js   
+B.	Optimize Frames per Second and Time to resize
+Changes made to views/js/main.js:
+DOM elements which were being retrieved or used in calculations inside a loop were moved outside of the for loop.
 
-//No need to reiterate the retrieval of the document.body.scrollTop, move it out of the for loop
-var docscrollTop = document.body.scrollTop;
-#############################################################################################################
+line 451-461:
+	//retrieve the randomPizzaContainer element and calculate the new width one time,
+	//there is no need to retrieve/calculate it for each element in the for loop.
+	var rPC = document.querySelectorAll(".randomPizzaContainer");
+	var dx = determineDx(rPC[0], size);
+	var newwidth = (rPC[0].offsetWidth + dx) + 'px';
+	// Iterates through pizza elements on the page and changes their widths
+	function changePizzaSizes(size) {
+		for (var i = 0; i < rPC.length; i++) {
+			rPC[i].style.width = newwidth;
+			}
+	}
 
-##### 2: Optimize Frames per Second in pizza.html
+line 474-479	
+	//retrieve the element once, there is no need to retrieve it for each element in the for loop.
+	var pizzasDiv = document.getElementById("randomPizzas");
+	// This for-loop actually creates and appends all of the pizzas when the page loads
+	for (var i = 2; i < 100; i++) {
+		pizzasDiv.appendChild(pizzaElementGenerator(i));
+	}
+
+line 511-516
+	//retrieve the element once, there is no need to retrieve it for each element in the for loop.
+	var scrTop = document.body.scrollTop;
+	for (var i = 0; i < items.length; i++) {
+		var phase = Math.sin((scrTop / 1250) + (i % 5));
+		items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+	}
+
